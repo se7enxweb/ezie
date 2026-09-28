@@ -1,7 +1,6 @@
 {*?template charset=utf-8?*}
 {* Require jQuery, using JS Core *}
 {ezscript_require( array( 'ezjsc::jquery',
-                        'jquery-migrate-1.1.1.min.js',
                         'ezjsc::jqueryio',
                         'ezjsc::jqueryUI',
                         'ezie.namespaces.js',
