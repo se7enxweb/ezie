@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de_DE">
+<TS version="2.0">
 <context>
     <name>design/standard/content/datatype</name>
     <message>
         <source>Current image</source>
-        <translation>Aktuelles Bild</translation>
+        <translation>Current image</translation>
     </message>
     <message>
         <source>Preview</source>
-        <translation>Vorschau</translation>
+        <translation>Preview</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation>Dateiname</translation>
+        <translation>Filename</translation>
     </message>
     <message>
         <source>MIME type</source>
@@ -21,30 +21,30 @@
     </message>
     <message>
         <source>Size</source>
-        <translation>Größe</translation>
+        <translation>Size</translation>
     </message>
     <message>
         <source>There is no image file.</source>
-        <translation>Es gibt keine Bilddatei.</translation>
+        <translation>There is no image file.</translation>
     </message>
     <message>
         <source>Remove image</source>
-        <translation>Bild entfernen</translation>
+        <translation>Remove image</translation>
     </message>
     <message>
         <source>New image file for upload</source>
-        <translation>Neues Bild für upload</translation>
+        <translation>New image file for upload</translation>
     </message>
     <message>
         <source>Alternative image text</source>
-        <translation>Alternativer Bildtext</translation>
+        <translation>Alternative image text</translation>
     </message>
 </context>
 <context>
     <name>design/standard/ezie</name>
     <message>
         <source>Edit</source>
-        <translation>Bearbeiten</translation>
+        <translation>Edit</translation>
     </message>
     <message>
         <source>eZ Image Editor</source>
@@ -52,23 +52,23 @@
     </message>
     <message>
         <source>Save and Close</source>
-        <translation>Speichern und Beenden</translation>
+        <translation>Save and Close</translation>
     </message>
     <message>
         <source>Save &amp;amp; Close</source>
-        <translation>Speichern &amp;amp; Beenden</translation>
+        <translation>Save &amp;amp; Close</translation>
     </message>
     <message>
         <source>Close without saving</source>
-        <translation>Beenden ohne Speichern</translation>
+        <translation>Close without saving</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation>Beenden</translation>
+        <translation>Quit</translation>
     </message>
     <message>
         <source>Thumbnail</source>
-        <translation>Miniaturansicht</translation>
+        <translation>Thumbnail</translation>
     </message>
     <message>
         <source>Rotation</source>
@@ -80,23 +80,23 @@
     </message>
     <message>
         <source>Select</source>
-        <translation>Auswählen</translation>
+        <translation>Select</translation>
     </message>
     <message>
         <source>Dimensions</source>
-        <translation>Abmessungen</translation>
+        <translation>Dimensions</translation>
     </message>
     <message>
         <source>Keep ratio</source>
-        <translation>Seitenverhältnis</translation>
+        <translation>Keep ratio</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>Frei</translation>
+        <translation>Free</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation>Zuschneiden</translation>
+        <translation>Crop</translation>
     </message>
     <message>
         <source>Zoom</source>
@@ -104,75 +104,75 @@
     </message>
     <message>
         <source>Actual pixels</source>
-        <translation>Aktuelle pixel</translation>
+        <translation>Actual pixels</translation>
     </message>
     <message>
         <source>Fit on screen</source>
-        <translation>Bildschirmgröße</translation>
+        <translation>Fit on screen</translation>
     </message>
     <message>
         <source>Watermarks</source>
-        <translation>Wasserzeichen</translation>
+        <translation>Watermarks</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation>Anwenden</translation>
+        <translation>Apply</translation>
     </message>
     <message>
         <source>Contrast</source>
-        <translation>Kontrast</translation>
+        <translation>Contrast</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation>Helligkeit</translation>
+        <translation>Brightness</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation>Aktionen</translation>
+        <translation>Actions</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation>Werkzeuge</translation>
+        <translation>Tools</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Rückgängig</translation>
+        <translation>Undo</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Wiederholen</translation>
+        <translation>Redo</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation>Bild</translation>
+        <translation>Image</translation>
     </message>
     <message>
         <source>Horizontal Flip</source>
-        <translation>Horizontal spiegeln</translation>
+        <translation>Horizontal Flip</translation>
     </message>
     <message>
         <source>Vertical Flip</source>
-        <translation>Vertikal spiegeln</translation>
+        <translation>Vertical Flip</translation>
     </message>
     <message>
         <source>Perform Crop</source>
-        <translation>Zuschneiden</translation>
+        <translation>Perform Crop</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation>Wasserzeichen</translation>
+        <translation>Watermark</translation>
     </message>
     <message>
         <source>Effects</source>
-        <translation>Effekte</translation>
+        <translation>Effects</translation>
     </message>
     <message>
         <source>Pixelate</source>
-        <translation>Verpixeln</translation>
+        <translation>Pixelate</translation>
     </message>
     <message>
         <source>Black and White</source>
-        <translation>Schwarz/Weiß</translation>
+        <translation>Black and White</translation>
     </message>
     <message>
         <source>Sepia</source>
@@ -180,15 +180,15 @@
     </message>
     <message>
         <source>Options</source>
-        <translation>Optionen</translation>
+        <translation>Options</translation>
     </message>
     <message>
         <source>The image is not loaded because of a server error.</source>
-        <translation>Das Bild wurde wegen eines Serverfehlers nicht geladen.</translation>
+        <translation>The image is not loaded because of a server error.</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Close</translation>
     </message>
 </context>
 </TS>
