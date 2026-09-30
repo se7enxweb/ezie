@@ -12,7 +12,7 @@ EYE.extend({
 		var y = 0;
 		var es = e.style;
 		var restoreStyles = false;
-		if (forceIt && jQuery.curCSS(e,'display') == 'none') {
+		if (forceIt && jQuery.css(e,'display') == 'none') {
 			var oldVisibility = es.visibility;
 			var oldPosition = es.position;
 			restoreStyles = true;
@@ -36,14 +36,10 @@ EYE.extend({
 					el = el.offsetParent;
 				}
 			}
-			if (jQuery.browser.safari && jQuery.curCSS(e, 'position') == 'absolute' ) {
-				x -= document.body.offsetLeft;
-				y -= document.body.offsetTop;
-			}
 			el = e.parentNode;
 			while (el && el.tagName.toUpperCase() != 'BODY' && el.tagName.toUpperCase() != 'HTML') 
 			{
-				if (jQuery.curCSS(el, 'display') != 'inline') {
+				if (jQuery.css(el, 'display') != 'inline') {
 					x -= el.scrollLeft;
 					y -= el.scrollTop;
 				}
@@ -59,11 +55,11 @@ EYE.extend({
 	},
 	getSize : function(e)
 	{
-		var w = parseInt(jQuery.curCSS(e,'width'), 10);
-		var h = parseInt(jQuery.curCSS(e,'height'), 10);
+		var w = parseInt(jQuery.css(e,'width'), 10);
+		var h = parseInt(jQuery.css(e,'height'), 10);
 		var wb = 0;
 		var hb = 0;
-		if (jQuery.curCSS(e, 'display') != 'none') {
+		if (jQuery.css(e, 'display') != 'none') {
 			wb = e.offsetWidth;
 			hb = e.offsetHeight;
 		} else {
@@ -125,10 +121,10 @@ EYE.extend({
 	},
 	getMargins : function(e, toInteger)
 	{
-		var t = jQuery.curCSS(e,'marginTop') || '';
-		var r = jQuery.curCSS(e,'marginRight') || '';
-		var b = jQuery.curCSS(e,'marginBottom') || '';
-		var l = jQuery.curCSS(e,'marginLeft') || '';
+		var t = jQuery.css(e,'marginTop') || '';
+		var r = jQuery.css(e,'marginRight') || '';
+		var b = jQuery.css(e,'marginBottom') || '';
+		var l = jQuery.css(e,'marginLeft') || '';
 		if (toInteger)
 			return {
 				t: parseInt(t, 10)||0,
@@ -141,10 +137,10 @@ EYE.extend({
 	},
 	getPadding : function(e, toInteger)
 	{
-		var t = jQuery.curCSS(e,'paddingTop') || '';
-		var r = jQuery.curCSS(e,'paddingRight') || '';
-		var b = jQuery.curCSS(e,'paddingBottom') || '';
-		var l = jQuery.curCSS(e,'paddingLeft') || '';
+		var t = jQuery.css(e,'paddingTop') || '';
+		var r = jQuery.css(e,'paddingRight') || '';
+		var b = jQuery.css(e,'paddingBottom') || '';
+		var l = jQuery.css(e,'paddingLeft') || '';
 		if (toInteger)
 			return {
 				t: parseInt(t, 10)||0,
@@ -157,10 +153,10 @@ EYE.extend({
 	},
 	getBorder : function(e, toInteger)
 	{
-		var t = jQuery.curCSS(e,'borderTopWidth') || '';
-		var r = jQuery.curCSS(e,'borderRightWidth') || '';
-		var b = jQuery.curCSS(e,'borderBottomWidth') || '';
-		var l = jQuery.curCSS(e,'borderLeftWidth') || '';
+		var t = jQuery.css(e,'borderTopWidth') || '';
+		var r = jQuery.css(e,'borderRightWidth') || '';
+		var b = jQuery.css(e,'borderBottomWidth') || '';
+		var l = jQuery.css(e,'borderLeftWidth') || '';
 		if (toInteger)
 			return {
 				t: parseInt(t, 10)||0,
@@ -211,7 +207,7 @@ EYE.extend({
 		if (!el || !el.nodeType || el.nodeType != 1) {
 			return false;
 		}
-		if (parentEl.contains && !$.browser.safari) {
+		if (parentEl.contains) {
 			return parentEl.contains(el);
 		}
 		if ( parentEl.compareDocumentPosition ) {
