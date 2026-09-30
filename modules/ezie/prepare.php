@@ -45,6 +45,20 @@ if ( is_dir( $working_folder_absolute_path ) )
 {
     eZDir::recursiveDelete( $working_folder_absolute_path );
 }
+
+// Working folders of the same user that were left behind more than a day ago
+// (the edit page was closed without closing the editor) are removed as well.
+$user_folder_absolute_path = dirname( $working_folder_absolute_path );
+if ( is_dir( $user_folder_absolute_path ) )
+{
+    foreach ( glob( $user_folder_absolute_path . '/*-*', GLOB_ONLYDIR ) ?: array() as $staleFolder )
+    {
+        if ( preg_match( '/^\d+-\d+$/', basename( $staleFolder ) ) && filemtime( $staleFolder ) < time() - 86400 )
+        {
+            eZDir::recursiveDelete( $staleFolder );
+        }
+    }
+}
 eZDir::mkdir( $working_folder_absolute_path, false, true );
 
 // Copy the original file in the temp directory
