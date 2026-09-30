@@ -19,15 +19,11 @@ class eZIEImageToolWatermark extends eZIEImageAction
      */
     public static function filter( $region, $image )
     {
-        // the watermark images are in ezie/design/standard/images/watermarks
-        // @todo use ini file for image paths instead
-        $img_path = realpath( dirname( __FILE__ ) . "/../design/standard/images/watermarks" ) . "/" . $image;
-
-        // retrieve image dimensions
-        $analyzer = new ezcImageAnalyzer( $img_path );
-
-        // percentage of the watermark original size to use
-        $pc = $region['w'] / $analyzer->data->width;
+        $img_path = self::imagePath( $image );
+        if ( $img_path === false )
+        {
+            throw new ezcBaseFileNotFoundException( (string)$image, 'watermark' );
+        }
 
         return array(
             new ezcImageFilter(
@@ -41,6 +37,27 @@ class eZIEImageToolWatermark extends eZIEImageAction
                 )
             )
         );
+    }
+
+    /**
+     * Absolute path of a watermark image, or false if there is none by that name
+     *
+     * The watermark images are in ezie/design/standard/images/watermarks.
+     * Only a plain file name is accepted, so the path cannot leave that folder.
+     *
+     * @param string $image Image file name
+     * @return string|false
+     */
+    public static function imagePath( $image )
+    {
+        $folder = realpath( dirname( __FILE__ ) . "/../design/standard/images/watermarks" );
+        if ( $folder === false || !is_string( $image ) || $image === '' || basename( $image ) !== $image || $image[0] === '.' )
+        {
+            return false;
+        }
+
+        $path = $folder . "/" . $image;
+        return is_file( $path ) ? $path : false;
     }
 }
 ?>
