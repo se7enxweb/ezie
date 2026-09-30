@@ -1,8 +1,28 @@
 KNOWN ISSUES on EZIE
 ====================
 
+WebP images cannot be edited
+----------------------------
+
+The ImageMagick and GD handlers of the image conversion component know no
+image/webp type, so an image stored as WebP cannot be opened in the editor
+(ezie/prepare answers 500 with {"error": ...}). WebP in
+[OutputSettings] AllowedOutputFormat is skipped by the editor, so JPEG, PNG
+and GIF images can be edited on a site that allows WebP output.
+
+Only an image of your own draft can be edited
+---------------------------------------------
+
+Every ezie view checks that the image attribute belongs to a draft of the
+current user that the user may edit in the attribute's language, as
+content/edit does. Errors are answered as JSON {"error": ...} with the HTTP
+status 400, 403, 404 or 500.
+
 Black & White filter applied to a region
 ----------------------------------------
+
+(Not seen with ImageMagick 6.9 and PHP 8.5: the region is respected for JPEG
+as well. Kept for older ImageMagick versions.)
 
 The black & white filter won't apply to a specific region but to the whole document. The reason hasn't been found in the
 ezie code itself, and might require investigation in the conversion ezcomponent.
