@@ -38,11 +38,18 @@
     padding: 5px;
     left:40%;
     top:35%;
-    width:250px;
-    height:50px;
+    width:280px;
+    min-height:50px;
     background-color:#f2f2f2;
     z-index:120;
     text-align:center;
+}
+
+#ezieConnectionError .ezieErrorDetail {
+    margin-top:6px;
+    font-size:0.85em;
+    color:#900;
+    word-wrap:break-word;
 }
 
 #ezieConfirmMessage{
