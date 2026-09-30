@@ -2,25 +2,21 @@
 /**
  * File containing the ezie no save & quit menu item handler
  *
+ * Throws the working copies of the edited image away. The image attribute
+ * itself is left as it was.
+ *
  * @copyright Copyright (C) eZ Systems AS.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @version //autogentag//
  * @package ezie
  */
 
-$prepare_action = new eZIEImagePreAction();
+// closing must work even when the working copy is already gone
+$prepare_action = new eZIEImagePreAction( false );
 
-// @todo Use the cluster handler code
+// deletes the working folder recursively; its path is built from the current
+// user and the image, never from the request
+eZDir::recursiveDelete( eZSys::rootDir() . '/' . $prepare_action->getWorkingFolder() );
 
-// delete all the images in working directory
-// delete working directory
-$working_folder = eZDir::dirpath( $prepare_action->getImagePath() );
-
-// deletes the working folder recursively
-eZDir::recursiveDelete($working_folder);
-
-// @todo delete the user directory if empty
-
-echo json_encode( new StdClass() );
-eZExecution::cleanExit();
+eZIEImagePreAction::sendJSON( new stdClass() );
 ?>

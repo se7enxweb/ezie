@@ -5,39 +5,27 @@
  * @copyright Copyright (C) eZ Systems AS.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @version //autogentag//
- * @package ezie
+ * @package kernel
  */
 $prepare_action = new eZIEImagePreAction();
 
-$http = eZHTTPTool::instance();
-
-$region = null;
-if ( $prepare_action->hasRegion() )
+// retrieve image dimensions
+$failure = false;
+try
 {
-    $region = $prepare_action->getRegion();
+    $analyzer = new eZIEImageAnalyzer( $prepare_action->getImagePath(), false );
+    $width = (int)$analyzer->data->width;
+    $height = (int)$analyzer->data->height;
+}
+catch ( Exception $e )
+{
+    eZDebug::writeError( get_class( $e ) . ': ' . $e->getMessage(), 'ezie/tool_pixelate' );
+    $failure = true;
+}
+if ( $failure || $width < 1 || $height < 1 )
+{
+    eZIEImagePreAction::sendError( 500, 'The image could not be analyzed' );
 }
 
-// retrieve image dimensions
-$analyzer = new eZIEImageAnalyzer( $prepare_action->getImagePath() );
-
-$imageconverter = new eZIEezcImageConverter(
-    eZIEImageToolPixelate::filter(
-        $analyzer->data->width,
-        $analyzer->data->height,
-        $region
-    )
-);
-
-$imageconverter->perform(
-    $prepare_action->getImagePath(),
-    $prepare_action->getNewImagePath()
-);
-
-eZIEImageToolResize::doThumb(
-    $prepare_action->getNewImagePath(),
-    $prepare_action->getNewThumbnailPath()
-);
-
-echo (string)$prepare_action;
-eZExecution::cleanExit();
+$prepare_action->apply( eZIEImageToolPixelate::filter( $width, $height, $prepare_action->getRegion() ) );
 ?>

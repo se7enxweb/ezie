@@ -1,6 +1,6 @@
 <?php
 /**
- * File containing the ezie horizontal flip handler
+ * File containing the ezie vertical flip handler
  *
  * @copyright Copyright (C) eZ Systems AS.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
@@ -9,18 +9,5 @@
  */
 $prepare_action = new eZIEImagePreAction();
 
-$imageconverter = new eZIEezcImageConverter( eZIEImageToolFlipVertically::filter() );
-
-$imageconverter->perform(
-    $prepare_action->getImagePath(),
-    $prepare_action->getNewImagePath()
-);
-
-eZIEImageToolResize::doThumb(
-    $prepare_action->getNewImagePath(),
-    $prepare_action->getNewThumbnailPath()
-);
-
-echo (string)$prepare_action;
-eZExecution::cleanExit();
+$prepare_action->apply( eZIEImageToolFlipVertically::filter() );
 ?>

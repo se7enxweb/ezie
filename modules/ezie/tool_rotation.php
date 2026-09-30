@@ -11,28 +11,27 @@ $prepare_action = new eZIEImagePreAction();
 
 $http = eZHTTPTool::instance();
 
-// @todo change hasvariable to haspostvariable
-$angle = $http->hasVariable( 'angle' ) ? $http->variable( 'angle' ) : 0;
-$color = $http->hasVariable( 'color' ) ? $http->variable( 'color' ) : 'FFFFFF';
+$angle = $http->hasPostVariable( 'angle' ) ? $http->postVariable( 'angle' ) : 0;
+$color = $http->hasPostVariable( 'color' ) ? $http->postVariable( 'color' ) : 'FFFFFF';
 
-// @todo change hasvariable to haspostvariable
-if ( $http->hasVariable( 'clockwise' ) && $http->variable( 'clockwise' ) == 'yes' )
+if ( !is_numeric( $angle ) )
 {
-    $angle = 360 - intval( $angle );
+    eZIEImagePreAction::sendError( 400, 'The rotation angle must be a number' );
+}
+// the handlers take 0 to 360 degrees
+$angle = ( (int)round( $angle ) % 360 + 360 ) % 360;
+
+// the background color goes to the handlers as a hexadecimal RGB code
+$color = ltrim( is_string( $color ) ? trim( $color ) : '', '#' );
+if ( !preg_match( '/^[0-9a-fA-F]{6}$/', $color ) )
+{
+    $color = 'FFFFFF';
 }
 
-$imageconverter = new eZIEezcImageConverter( eZIEImageToolRotation::filter( $angle, $color ) );
+if ( $http->hasPostVariable( 'clockwise' ) && $http->postVariable( 'clockwise' ) == 'yes' )
+{
+    $angle = ( 360 - $angle ) % 360;
+}
 
-$imageconverter->perform(
-    $prepare_action->getImagePath(),
-    $prepare_action->getNewImagePath()
-);
-
-eZIEImageToolResize::doThumb(
-    $prepare_action->getNewImagePath(),
-    $prepare_action->getNewThumbnailPath()
-);
-
-echo (string)$prepare_action;
-eZExecution::cleanExit();
+$prepare_action->apply( eZIEImageToolRotation::filter( $angle, $color ) );
 ?>

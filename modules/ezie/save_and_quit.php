@@ -1,6 +1,10 @@
 <?php
 /**
- * File containing the ezie no save & quit menu item handler
+ * File containing the ezie save & quit menu item handler
+ *
+ * Stores the current history version of the edited image into the image
+ * attribute of the draft, removes the working folder and answers with the
+ * attribute's edit template, which the editor puts back into the edit form.
  *
  * @copyright Copyright (C) eZ Systems AS.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
@@ -14,30 +18,37 @@ $imageVersion = $prepare_action->getImageVersion();
 
 $imageAttribute = eZContentObjectAttribute::fetch( $imageId, $imageVersion );
 
+// the working copy must be local to be read by the image alias handler
+$clusterFile = eZClusterFileHandler::instance( $prepare_action->getImagePath() );
+$clusterFile->fetch();
+
 // Save the class attribute
 $imageHandler = $prepare_action->getImageHandler();
-$imageHandler->initializeFromFile( $prepare_action->getImagePath(), $imageHandler->attribute( 'alternative_text' ), $imageHandler->attribute( 'original_filename' ) );
+$stored = $imageHandler->initializeFromFile(
+    $prepare_action->getImagePath(),
+    $imageHandler->attribute( 'alternative_text' ),
+    $imageHandler->attribute( 'original_filename' )
+);
+if ( $stored === false )
+{
+    eZIEImagePreAction::sendError( 500, 'The edited image could not be stored' );
+}
 
-// TODO: what's $contentobjectattribute (ask jerome) ?
 $imageHandler->store( $imageAttribute );
 
 // remove view cache if needed
 eZContentCacheManager::clearObjectViewCacheIfNeeded( $imageAttribute->attribute( 'contentobject_id' ) );
 
-// delete all the images in working directory
-// delete working directory
-$working_folder = eZDir::dirpath( $prepare_action->getImagePath() );
-
 // deletes the working folder recursively
-eZDir::recursiveDelete( $working_folder );
+eZDir::recursiveDelete( eZSys::rootDir() . '/' . $prepare_action->getWorkingFolder() );
 
 // new attribute
 $imageAttribute = eZContentObjectAttribute::fetch( $imageId, $imageVersion );
 
-// @todo Use proper JSON, but this will do for now.
 $tpl = eZTemplate::factory();
 $tpl->setVariable( 'ezie_ajax_response', true );
 $tpl->setVariable( 'attribute', $imageAttribute );
+header( 'Content-Type: text/html; charset=utf-8' );
 echo $tpl->fetch( "design:content/datatype/edit/ezimage.tpl" );
 eZExecution::cleanExit();
 ?>
