@@ -21,18 +21,40 @@
 //
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
 ezie.ezconnect.failure_default = function(XMLHttpRequest, textStatus, errorThrown) {
-    $.log("[ezie.ezconnect] failure_default called: unhandled error");
-    $.log('  debug: textStatus:');
-    $.log(textStatus);
-    $.log('  debug: errorThrown');
-    $.log(errorThrown);
-    $( "#ezieConnectionError" ).show();
-    $( "#ezieConfirmMessage" ).click( function(){
-                ezie.gui.eziegui.getInstance().close();
-                // update the frontend
-                $('#ezieToolsWindow').find('.current').removeClass('current');
-                $('#ezie_zoom').parent().addClass('current');
-        } );
-    //$.log('  debug: responseText');
-    //$.log(XMLHttpRequest.responseText);
+    $.log("[ezie.ezconnect] request failed: " + textStatus + " " + errorThrown);
+
+    // The server answers errors as JSON {"error": "..."}; show that text.
+    var detail = '';
+    if (XMLHttpRequest) {
+        var json = XMLHttpRequest.responseJSON;
+        if (!json && XMLHttpRequest.responseText) {
+            try {
+                json = JSON.parse(XMLHttpRequest.responseText);
+            } catch (e) {
+                json = null;
+            }
+        }
+        if (json && json.error) {
+            detail = json.error;
+        } else if (XMLHttpRequest.status) {
+            detail = XMLHttpRequest.status + ' ' + (XMLHttpRequest.statusText || '');
+        }
+    }
+    $("#ezieConnectionError .ezieErrorDetail").text(detail);
+
+    // When an image is already loaded the editor stays open, so the work
+    // done so far is not lost; only a failed prepare closes it.
+    var imageLoaded = ezie.history().current() != null;
+
+    $("#ezieConnectionError").show();
+    $("#ezieConfirmMessage").off('click.ezie').on('click.ezie', function() {
+        $("#ezieConnectionError").hide();
+        if (imageLoaded) {
+            return;
+        }
+        ezie.gui.eziegui.getInstance().close();
+        // update the frontend
+        $('#ezieToolsWindow').find('.current').removeClass('current');
+        $('#ezie_zoom').parent().addClass('current');
+    });
 }

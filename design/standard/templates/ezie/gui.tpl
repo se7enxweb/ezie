@@ -279,6 +279,7 @@
     <div id="ezieConnectionError" class="ezieBox">
         <div>
             <p>{'The image is not loaded because of a server error.'|i18n( 'design/standard/ezie' )}</p>
+            <p class="ezieErrorDetail"></p>
         </div>
         <div>
             <input id="ezieConfirmMessage" type="button" class="button" value="{'Close'|i18n('design/standard/ezie')}" />
