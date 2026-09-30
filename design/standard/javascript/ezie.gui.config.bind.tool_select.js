@@ -91,8 +91,8 @@ ezie.gui.config.bind.tool_select_remove = function (){
 ezie.gui.config.bind.tool_select_method = function( e ) {
 
     var selectMethod = $('#optsSelect input[type="radio"]:checked:first').val();
-    var selectWidth = $('#optsSelect input[type="text"][name="selection_width"]:first').val();
-    var selectHeight = $('#optsSelect input[type="text"][name="selection_height"]:first').val();
+    var selectWidth = parseInt($('#optsSelect input[type="text"][name="selection_width"]:first').val(), 10) || 0;
+    var selectHeight = parseInt($('#optsSelect input[type="text"][name="selection_height"]:first').val(), 10) || 0;
 
     var settings = {
         onSelect: ezie.gui.selection().set,
@@ -119,7 +119,7 @@ ezie.gui.config.bind.tool_select_method = function( e ) {
 
             settings.aspectRatio = selectWidth / selectHeight;
 
-            settings.setSelect[4] = settings.setSelect[3] * settings.aspectRatio;
+            settings.setSelect[2] = settings.setSelect[0] + (settings.setSelect[3] - settings.setSelect[1]) * settings.aspectRatio;
 
             break;
         case 'free':
@@ -139,10 +139,7 @@ ezie.gui.config.bind.tool_select_method = function( e ) {
         ezie.gui.config.bind.tool_select_api  = $.Jcrop("#main_image img:first", settings);
     }
 
-    // hack to avoid an eZ Publish function I can't find that blocks
-    // the changes of values of the input radios
-    // Throws anything
-    throw "this looks like an error but it's not :)";
-
-    return false;
+    // true lets the click through, so the radio buttons and their labels
+    // change their checked state (see setBindsForButtons in ezie.gui.opts_window.js)
+    return true;
 }

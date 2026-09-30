@@ -53,7 +53,8 @@ ezie.gui.opts_window = function() {
             var item = $(config.selector);
             item.click(function() {
                 if (!ezie.gui.eziegui.getInstance().isFrozen()) {
-                    config.click(this);
+                    // a handler that returns true lets the default action happen (radio buttons)
+                    return config.click(this) === true;
                 }
                 return false;
             });
@@ -86,10 +87,10 @@ ezie.gui.opts_window = function() {
     }
 
     var freeze = function() {
-        $("button").freeze();
+        $("#ezieMainContainer button").freeze();
     }
     var unfreeze = function() {
-        $("button").unfreeze();
+        $("#ezieMainContainer button").unfreeze();
     }
 
     var hide = function () {
