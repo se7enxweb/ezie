@@ -40,7 +40,7 @@ class eZIEEzcImageMagickHandler extends ezcImageImagemagickHandler implements eZ
         $angle = intval( $angle );
         if ( !is_int( $angle ) || ( $angle < 0 ) || ( $angle > 360 ) )
         {
-            throw new ezcBaseValueException( 'height', $height, 'angle < 0 or angle > 360' );
+            throw new ezcBaseValueException( 'angle', $angle, 'int >= 0 && int <= 360' );
         }
 
         $angle = 360 - $angle;
@@ -64,7 +64,24 @@ class eZIEEzcImageMagickHandler extends ezcImageImagemagickHandler implements eZ
      */
     public function horizontalFlip( $region = null )
     {
-        $this->addFilterOption( $this->getActiveReference(), '-flop' );
+        if ( $region === null )
+        {
+            $this->addFilterOption( $this->getActiveReference(), '-flop' );
+            return;
+        }
+
+        // -flop does not honour -region, so a selection (which the GD handler
+        // flips on its own) is cut out, flopped and composed back in place.
+        // Only integers go into the option, the parentheses are escaped for
+        // the shell.
+        $w = (int)$region['w'];
+        $h = (int)$region['h'];
+        $x = (int)$region['x'];
+        $y = (int)$region['y'];
+        $this->addFilterOption(
+            $this->getActiveReference(),
+            "\\( +clone -crop {$w}x{$h}+{$x}+{$y} +repage -flop \\) -geometry +{$x}+{$y} -composite"
+        );
     }
 
     /* (non-PHPdoc)
