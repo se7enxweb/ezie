@@ -29,6 +29,8 @@ class eZIEezcImageConverter
         // we get an array of handlers, where order of entries in array gives priority
         // for each entry, we need to check if the matching handler is enabled, and this has to be manual
         $imageHandlers = $imageINI->variable( 'ImageConverterSettings', 'ImageConverters' );
+        $hasImageMagick = false;
+        $hasGD2 = false;
         foreach( $imageHandlers as $imageHandler )
         {
             switch( $imageHandler )
@@ -46,7 +48,7 @@ class eZIEezcImageConverter
                 {
                     $hasGD2 =
                         $imageINI->variable( 'GD', 'IsEnabled' ) == 'true' &&
-                        $imageINI->variable( 'GDSettings', 'HasGD2' == 'true' );
+                        $imageINI->variable( 'GDSettings', 'HasGD2' ) == 'true';
                     if ( $hasGD2 )
                         break 2;
                 } break;
@@ -83,9 +85,25 @@ class eZIEezcImageConverter
 
         $this->converter = new ezcImageConverter( $settings );
 
-        $mimeType = $imageINI->variable( 'OutputSettings', 'AllowedOutputFormat' );
+        // The site may allow output formats the editor's handler cannot write
+        // (image/webp with the ImageMagick and GD handlers of the image
+        // conversion component). A transformation that names one of them
+        // cannot be created at all, so only the formats the converter supports
+        // are passed on.
+        $mimeTypes = array();
+        foreach ( (array)$imageINI->variable( 'OutputSettings', 'AllowedOutputFormat' ) as $mimeType )
+        {
+            if ( $mimeType != '' && $this->converter->allowsOutput( $mimeType ) )
+            {
+                $mimeTypes[] = $mimeType;
+            }
+        }
+        if ( empty( $mimeTypes ) )
+        {
+            $mimeTypes = array( 'image/jpeg', 'image/png', 'image/gif' );
+        }
 
-        $this->converter->createTransformation( 'transformation', $filter, $mimeType );
+        $this->converter->createTransformation( 'transformation', $filter, $mimeTypes );
     }
 
     /**
