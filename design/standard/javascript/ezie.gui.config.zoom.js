@@ -39,7 +39,7 @@ ezie.gui.config.zoom_impl = function() {
             'height': 'auto'
         });
 
-        img.load(function() {
+        img.on('load', function() {
             realWidth = this.width;
             realHeight = this.height;
             setZoom(currentZoom);
@@ -124,7 +124,7 @@ ezie.gui.config.zoom_impl = function() {
 
         $.log('fromcache : "' + typeof fromCache + '"');
 
-        img.load(function() {
+        img.on('load', function() {
             $.log('rezoom from load');
 
             // this is in case the image has been resized but the load function triggered
