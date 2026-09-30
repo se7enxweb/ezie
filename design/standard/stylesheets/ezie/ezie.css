@@ -416,6 +416,8 @@
     width:160px;
     top:0px;
     right:0px;
+    overflow-x:hidden;
+    overflow-y:auto;
 }
 
 #miniature {
