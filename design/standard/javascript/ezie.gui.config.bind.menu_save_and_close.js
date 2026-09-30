@@ -20,18 +20,21 @@
 //
 //
 // ## END COPYRIGHT, LICENSE AND WARRANTY NOTICE ##
-var b;
-
+// Replaces the edit blocks of the image attribute (current image, upload,
+// alternative text) with the ones the server rendered after saving. Works
+// wherever the admin puts them: in a fieldset with a legend, in the
+// translation column, or directly in the attribute block.
 ezie.gui.config.bind.reload_saved = function(new_block) {
     var button = ezie.gui.eziegui.getInstance().button();
-    b = button;
-    var ez_edit_block = button.closest('fieldset');
+    var first = button.closest('div.block');
+    var container = first.parent();
+    var old_blocks = container.children('div.block');
+    var nodes = $($.parseHTML(String(new_block).trim(), document, false));
 
-    ez_edit_block.find('div.block').remove();
+    first.before(nodes);
+    old_blocks.remove();
 
-    ez_edit_block.find('legend:first').after(new_block);
-
-    ez_edit_block.find(".ezieEditButton").ezie();
+    container.find(".ezieEditButton").ezie();
 }
 
 ezie.gui.config.bind.menu_save_and_close = function() {
