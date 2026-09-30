@@ -63,6 +63,10 @@
         <translation>Close without saving</translation>
     </message>
     <message>
+        <source>If you leave without saving, all your modifications will be definitely lost</source>
+        <translation>If you leave without saving, all your modifications will be definitely lost</translation>
+    </message>
+    <message>
         <source>Quit</source>
         <translation>Quit</translation>
     </message>

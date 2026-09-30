@@ -63,6 +63,10 @@
         <translation>Beenden ohne Speichern</translation>
     </message>
     <message>
+        <source>If you leave without saving, all your modifications will be definitely lost</source>
+        <translation>Wenn Sie ohne Speichern beenden, gehen alle Ihre Änderungen endgültig verloren</translation>
+    </message>
+    <message>
         <source>Quit</source>
         <translation>Beenden</translation>
     </message>

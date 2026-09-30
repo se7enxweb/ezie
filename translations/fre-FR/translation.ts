@@ -63,6 +63,10 @@
         <translation>Quitter sans enregistrer</translation>
     </message>
     <message>
+        <source>If you leave without saving, all your modifications will be definitely lost</source>
+        <translation>Si vous quittez sans enregistrer, toutes vos modifications seront définitivement perdues</translation>
+    </message>
+    <message>
         <source>Thumbnail</source>
         <translation>Miniature</translation>
     </message>

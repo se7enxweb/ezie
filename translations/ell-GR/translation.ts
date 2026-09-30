@@ -63,6 +63,10 @@
         <translation>Κλείσιμο χωρίς αποθήκευση</translation>
     </message>
     <message>
+        <source>If you leave without saving, all your modifications will be definitely lost</source>
+        <translation>Αν βγείτε χωρίς αποθήκευση, όλες οι αλλαγές σας θα χαθούν οριστικά</translation>
+    </message>
+    <message>
         <source>Quit</source>
         <translation>Έξοδος</translation>
     </message>

@@ -63,6 +63,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>If you leave without saving, all your modifications will be definitely lost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>

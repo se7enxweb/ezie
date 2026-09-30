@@ -63,6 +63,10 @@
         <translation>Fechar sem salvar</translation>
     </message>
     <message>
+        <source>If you leave without saving, all your modifications will be definitely lost</source>
+        <translation>Se você sair sem salvar, todas as suas alterações serão perdidas definitivamente</translation>
+    </message>
+    <message>
         <source>Quit</source>
         <translation>Sair</translation>
     </message>

@@ -63,6 +63,10 @@
         <translation>Zatvori bez spremanja</translation>
     </message>
     <message>
+        <source>If you leave without saving, all your modifications will be definitely lost</source>
+        <translation>Ako izađete bez spremanja, sve vaše izmjene bit će trajno izgubljene</translation>
+    </message>
+    <message>
         <source>Quit</source>
         <translation>Odustani</translation>
     </message>

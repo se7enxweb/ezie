@@ -27,7 +27,9 @@ ezie.gui.config.bind.menu_close_without_saving = function() {
     }
     
     // TODO: call this when the user leaves the page (ie, fx et chrome)
-    if (!confirm('If you leave without saving, all your modifications will be definitely lost')) {
+    var question = $('#ezieMainContainer').attr('data-confirm-quit') || 'If you leave without saving, all your modifications will be definitely lost';
+    // Only ask when there is something to lose
+    if (ezie.history().version() > 0 && !confirm(question)) {
         return;
     }
 
@@ -37,13 +39,23 @@ ezie.gui.config.bind.menu_close_without_saving = function() {
     ezie.gui.eziegui.getInstance().desactivateUndo();
     ezie.gui.eziegui.getInstance().desactivateRedo();
 
+    var closeEditor = function() {
+        ezie.gui.config.bind.tool_select_remove();
+        $('#main_image, #miniature').empty();
+        ezie.gui.eziegui.getInstance().close();
+        // update the frontend
+        $('#ezieToolsWindow').find('.current').removeClass('current');
+        $('#ezie_zoom').parent().addClass('current');
+    };
+
+    // The working copy is thrown away either way: when the server cannot
+    // clean it up the editor still closes, nothing of the draft changes.
     ezie.ezconnect.connect.instance().action({
         'action': 'no_save_and_quit',
-        'success': function() {
-            ezie.gui.eziegui.getInstance().close();
-            // update the frontend
-            $('#ezieToolsWindow').find('.current').removeClass('current');
-            $('#ezie_zoom').parent().addClass('current');
+        'success': closeEditor,
+        'error': function(xhr, textStatus, errorThrown) {
+            $.log('no_save_and_quit failed: ' + textStatus + ' ' + errorThrown);
+            closeEditor();
         }
     });
 

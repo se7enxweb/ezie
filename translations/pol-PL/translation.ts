@@ -63,6 +63,10 @@
         <translation>Zamknij bez zapisywania</translation>
     </message>
     <message>
+        <source>If you leave without saving, all your modifications will be definitely lost</source>
+        <translation>Jeśli wyjdziesz bez zapisywania, wszystkie zmiany zostaną bezpowrotnie utracone</translation>
+    </message>
+    <message>
         <source>Quit</source>
         <translation>Zamknij</translation>
     </message>

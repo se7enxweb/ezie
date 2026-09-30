@@ -63,6 +63,10 @@
         <translation>保存せす終了</translation>
     </message>
     <message>
+        <source>If you leave without saving, all your modifications will be definitely lost</source>
+        <translation>保存せずに終了すると、すべての変更が失われます</translation>
+    </message>
+    <message>
         <source>Quit</source>
         <translation>終了</translation>
     </message>

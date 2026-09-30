@@ -59,7 +59,7 @@
                        'ezie/vtip.css',
                        'ezie/jquery.Jcrop.css' ) )}
 
-<div id="ezieMainContainer">
+<div id="ezieMainContainer" data-confirm-quit="{'If you leave without saving, all your modifications will be definitely lost'|i18n( 'design/standard/ezie' )|wash}">
     <div class="ezieBox drawZone" id="ezieMainWindow">
         <div class="topBar">
             <div class="leftCorner"></div><div class="rightCorner"></div>
