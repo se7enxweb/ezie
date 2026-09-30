@@ -34,7 +34,12 @@ ezie.gui.tools_window = function() {
         $.each(ezie.gui.config.bindings.tools_window, function() {
             var config = this;
             var item = $(config.selector);
-            item.click(function () {
+            if (!item.length || typeof config.click !== 'function') {
+                return;
+            }
+            // The window is shown (and bound) again every time the editor opens,
+            // so every handler is namespaced and removed again in unsetBinds.
+            item.on('click.ezieTool', function () {
                 if (! ezie.gui.eziegui.getInstance().isFrozen()) {
                     config.click();
                 }
@@ -43,8 +48,11 @@ ezie.gui.tools_window = function() {
             });
 
             if (config.shortcut) {
-                item.attr("title", item.attr("title") + " (" + config.shortcut + ")");
-                $(document).bind('keydown.ezie', config.shortcut, function (e) {
+                if (item.data('ezieTitle') === undefined) {
+                    item.data('ezieTitle', item.attr("title"));
+                }
+                item.attr("title", item.data('ezieTitle') + " (" + config.shortcut + ")");
+                $(document).on('keydown.ezie', null, config.shortcut, function (e) {
                     if (!ezie.gui.eziegui.getInstance().isFrozen()) {
                         config.click();
                         e.stopPropagation( );
@@ -59,9 +67,9 @@ ezie.gui.tools_window = function() {
                 var p = item.closest('div.ezieBox').find('div.bottomBarContent p')
                 var oldcontent = p.html()
 
-                item.hover(function (){
+                item.on('mouseenter.ezieTool', function (){
                     p.html($(this).attr('title'))
-                }, function () {
+                }).on('mouseleave.ezieTool', function () {
                     p.html(oldcontent)
                 });
             }
@@ -71,11 +79,9 @@ ezie.gui.tools_window = function() {
     };
 
     var unsetBinds = function () {
-        $(document).unbind('keydown.ezie');
+        $(document).off('keydown.ezie');
         $.each(ezie.gui.config.bindings.tools_window, function() {
-            var config = this;
-            var item = $(config.selector);
-            item.unbind('click');
+            $(this.selector).off('.ezieTool');
         });
     }
 

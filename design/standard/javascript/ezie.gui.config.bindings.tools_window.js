@@ -43,11 +43,6 @@ ezie.gui.config.bindings.tools_window = [
         'shortcut':     'z'
     },
     {
-        'selector':     '#ezie_img',
-        'click':        ezie.gui.config.bind.tool_img,
-        'shortcut':     'i'
-    },
-    {
         'selector':     '#ezie_watermark',
         'click':        ezie.gui.config.bind.tool_watermark,
         'shortcut':     'w'
@@ -76,11 +71,6 @@ ezie.gui.config.bindings.tools_window = [
         'selector':      '#ezie_rotation',
         'click':         ezie.gui.config.bind.tool_rotation_show,
         'shortcut':      'n'
-    },
-    {
-        'selector':      '#ezie_levels',
-        'click':         ezie.gui.config.bind.tool_levels_show,
-        'shortcut':      '1'
     },
     {
         'selector':     '#ezie_pixelate',
