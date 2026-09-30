@@ -24,7 +24,7 @@ class eZIEEzcGDHandler extends ezcImageGdHandler implements eZIEEzcConversions
         $dest = imagecreatetruecolor( $region["w"], $region["h"] );
         if ( !imagecopy( $dest, $resource, 0, 0, $region["x"], $region["y"], $region["w"], $region["h"] ) )
         {
-            throw new ezcImageFilterFailedException( "1/ {$function} applied on region {$region['x']}x{$region['y']}" );
+            throw new ezcImageFilterFailedException( "1/ {$filter} applied on region {$region['x']}x{$region['y']}" );
         }
 
         if ( !$colorspace )
@@ -45,7 +45,7 @@ class eZIEEzcGDHandler extends ezcImageGdHandler implements eZIEEzcConversions
 
         if ( !imagecopy( $resource, $result, $region["x"], $region["y"], 0, 0, $region["w"], $region["h"] ) )
         {
-            throw new ezcImageFilterFailedException( "2/ {$function} applied on region {$region['x']}x{$region['y']}" );
+            throw new ezcImageFilterFailedException( "2/ {$filter} applied on region {$region['x']}x{$region['y']}" );
         }
 
         return $resource;
@@ -108,7 +108,8 @@ class eZIEEzcGDHandler extends ezcImageGdHandler implements eZIEEzcConversions
             throw new ezcImageFilterFailedException( 'rotate', 'Rotation of image failed.' );
         }
 
-        imagedestroy( $resource );
+        // GD images are objects since PHP 8 and freed with their last reference
+        // (imagedestroy() is deprecated as of PHP 8.5)
         $this->setActiveResource( $newResource );
     }
 
@@ -138,7 +139,8 @@ class eZIEEzcGDHandler extends ezcImageGdHandler implements eZIEEzcConversions
             throw new ezcImageFilterFailedException( 'rotate', 'Rotation of image failed.' );
         }
 
-        imagedestroy( $resource );
+        // GD images are objects since PHP 8 and freed with their last reference
+        // (imagedestroy() is deprecated as of PHP 8.5)
         $this->setActiveResource( $newResource );
     }
 
@@ -167,7 +169,8 @@ class eZIEEzcGDHandler extends ezcImageGdHandler implements eZIEEzcConversions
             throw new ezcImageFilterFailedException( 'rotate', 'Rotation of image failed.' );
         }
 
-        imagedestroy( $resource );
+        // GD images are objects since PHP 8 and freed with their last reference
+        // (imagedestroy() is deprecated as of PHP 8.5)
         return $newResource;
     }
 
@@ -202,10 +205,11 @@ class eZIEEzcGDHandler extends ezcImageGdHandler implements eZIEEzcConversions
         $w = imagesx( $resource );
         $h = imagesy( $resource );
 
-        $size = ceil( max( $width, $height ) ) / 42;
+        // GD takes integer sizes; a size below one pixel is not a valid image
+        $size = max( 1, (int)ceil( max( $width, $height ) / 42 ) );
 
-        $tmp_w = $w / $size;
-        $tmp_h = $h / $size;
+        $tmp_w = max( 1, (int)round( $w / $size ) );
+        $tmp_h = max( 1, (int)round( $h / $size ) );
 
         $tmpResource = imagecreatetruecolor( $tmp_w, $tmp_h );
 
@@ -222,7 +226,8 @@ class eZIEEzcGDHandler extends ezcImageGdHandler implements eZIEEzcConversions
         {
             throw new ezcImageFilterFailedException( 'pixelate', 'First part of pixelate failed.' );
         }
-        imagedestroy( $resource );
+        // GD images are objects since PHP 8 and freed with their last reference
+        // (imagedestroy() is deprecated as of PHP 8.5)
 
         $newResource = imagecreatetruecolor( $w, $h );
 
@@ -240,7 +245,8 @@ class eZIEEzcGDHandler extends ezcImageGdHandler implements eZIEEzcConversions
             throw new ezcImageFilterFailedException( 'pixelate', 'Second part of pixelate failed.' );
         }
 
-        imagedestroy( $tmpResource );
+        // GD images are objects since PHP 8 and freed with their last reference
+        // (imagedestroy() is deprecated as of PHP 8.5)
         return $newResource;
     }
 
