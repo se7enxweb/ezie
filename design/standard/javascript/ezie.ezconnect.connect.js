@@ -51,7 +51,17 @@ ezie.ezconnect.connect = function() {
         'module_url': null,
         // form token to avoid CSRF attack
         // only useful and filled when ezformtoken extension is enabled
-        'ezxform_token': $('#ezxform_token_js').attr('title')
+        'ezxform_token': null
+    };
+
+    // The token ezformtoken puts in the page: the csrf-token meta tag in the
+    // head, or the hidden span at the top of the body in older layouts.
+    var formToken = function() {
+        var token = $('#ezxform_token_js').attr('title');
+        if (!token) {
+            token = $('meta[name="csrf-token"]').attr('content');
+        }
+        return token || null;
     };
 
     // Sets the attributes at unusables values
@@ -99,6 +109,12 @@ ezie.ezconnect.connect = function() {
             settings.data = {}
         }
         $.extend(settings.data, ezdata);
+        settings.data.ezxform_token = formToken();
+        if (settings.data.ezxform_token) {
+            settings.headers = $.extend({}, settings.headers, {'X-CSRF-Token': settings.data.ezxform_token});
+        } else {
+            delete settings.data.ezxform_token;
+        }
         if (ezie.gui.selection().isSelectionActive()) {
             var zoom = ezie.gui.config.zoom().get();
             var selection = ezie.gui.selection().arrayZoomedSelection((100  * 100) / zoom);
