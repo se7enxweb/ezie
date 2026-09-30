@@ -85,6 +85,7 @@ ezie.gui.eziegui = function () {
         optsWindow.show();
         $.log('goshow');
 
+        placeWindows();
         show();
     };
 
@@ -192,7 +193,27 @@ ezie.gui.eziegui = function () {
         optsWindow = new ezie.gui.opts_window();
 
         jWindow = $("#ezieMainContainer");
+        // The editor is rendered inside the content edit form. Move it to the
+        // body: its fields must not be posted with the form (pressing Enter in
+        // one of them would submit the draft), and it must not stay inside the
+        // admin column, whose stacking puts the side columns on top of it.
+        jWindow.appendTo(document.body);
         initialized = true;
+    };
+
+    // Puts the tools window and the main window side by side, centred in the
+    // viewport, so both are fully visible on small screens and at high zoom.
+    var placeWindows = function() {
+        var gap = 10;
+        var vw = $(window).width();
+        var tools = $("#ezieToolsWindow");
+        var main = $("#ezieMainWindow");
+        var toolsWidth = tools.outerWidth() || 200;
+        var mainWidth = main.outerWidth() || 700;
+        var left = Math.max(gap, Math.floor((vw - toolsWidth - mainWidth - gap) / 2));
+
+        tools.css('left', left + 'px');
+        main.css('left', Math.min(left + toolsWidth + gap, Math.max(gap, vw - mainWidth - gap)) + 'px');
     };
 
     // public methods
