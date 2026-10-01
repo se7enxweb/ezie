@@ -44,7 +44,7 @@ ezie.gui.variations_bar = function() {
             var config = this;
             item = $(config.selector);
 
-            item.click(function () {
+            item.on('click', function () {
                 config.click();
                 return false;
             });
@@ -54,9 +54,9 @@ ezie.gui.variations_bar = function() {
                 var p = item.closest('div.ezieBox').find('div.bottomBarContent p')
                 var oldcontent = p.html()
 
-                item.hover(function (){
+                item.on('mouseenter', function (){
                     p.html($(this).attr('title'))
-                }, function () {
+                }).on('mouseleave', function () {
                     p.html(oldcontent)
                 });
             }

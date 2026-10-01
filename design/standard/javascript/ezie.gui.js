@@ -105,7 +105,7 @@ ezie.gui.eziegui = function () {
 
     var initGUI = function() {
         // global functionnalities & effects
-        $(".ezieBox").hover(function() {
+        $(".ezieBox").on('mouseenter mouseleave', function() {
             if (!$(this).data("init")) {
                 $(this).data("init", true);
                 $(this).draggable({
@@ -116,7 +116,7 @@ ezie.gui.eziegui = function () {
 
         $(".closed").parent(".sectionHeader").next(".sectionContent").hide();
         // TODO: move this
-        $(".sectionHeader h4").click(function() {
+        $(".sectionHeader h4").on('click', function() {
             $(this).parent(".sectionHeader").next(".sectionContent").slideToggle();
             $(this).toggleClass("closed");
         });
@@ -164,23 +164,23 @@ ezie.gui.eziegui = function () {
             }
         });
 
-        $(".tools li:not(.less) a").click(function() {
+        $(".tools li:not(.less) a").on('click', function() {
             $(this).closest(".tools").find("li").removeClass("current");
             $(this).parent("li").addClass("current");
         });
 
-        $(".filters li.more a").click(function() {
+        $(".filters li.more a").on('click', function() {
             $(".filters li.more").removeClass("current");
             $(this).parent("li").addClass("current");
         });
 
-        $(".less").mousedown(function() {
+        $(".less").on('mousedown', function() {
            $(this).addClass("click");
         });
-        $(".less").mouseup(function() {
+        $(".less").on('mouseup', function() {
            $(this).removeClass("click");
         });
-        $(".less").mouseout(function() {
+        $(".less").on('mouseout', function() {
            $(this).removeClass("click");
         });
     };

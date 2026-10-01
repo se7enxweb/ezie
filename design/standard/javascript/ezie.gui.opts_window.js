@@ -51,7 +51,7 @@ ezie.gui.opts_window = function() {
         $.each(ezie.gui.config.bindings.opts_items_buttons, function() {
             var config = this;
             var item = $(config.selector);
-            item.click(function() {
+            item.on('click', function() {
                 if (!ezie.gui.eziegui.getInstance().isFrozen()) {
                     // a handler that returns true lets the default action happen (radio buttons)
                     return config.click(this) === true;
@@ -65,7 +65,7 @@ ezie.gui.opts_window = function() {
         setBindsForSliders();
         setBindsForButtons();
 
-        $('#optsSelect input[type="text"]').keyup(function(e) {
+        $('#optsSelect input[type="text"]').on('keyup', function(e) {
             ezie.gui.config.bind.tool_select_method( e );
             return true;
         });

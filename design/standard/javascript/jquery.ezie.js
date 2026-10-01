@@ -29,7 +29,7 @@
 
     $.fn.ezie = function() {
         this.each(function() {
-            $(this).click(function() {
+            $(this).on('click', function() {
                 var url = $(this).attr('name');
 
                 if (url.indexOf('ezieEdit[') != 0) {

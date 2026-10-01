@@ -37,7 +37,7 @@ ezie.gui.config.bind.tool_rotation_show = function() {
         },
         function(api) {
             ezie.gui.config.bind.tool_rotation_slider_api = api;
-            $("#optsRotation input[name='angle']:first").keyup(function(){
+            $("#optsRotation input[name='angle']:first").on('keyup', function(){
                 $.log('kikou on tapote');
                 if ($(this).val() >= 0 && $(this).val() <= 359)
                     ezie.gui.config.bind.tool_rotation_slider_api.set($(this).val());
