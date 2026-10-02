@@ -5,18 +5,12 @@
  * Throws the working copies of the edited image away. The image attribute
  * itself is left as it was.
  *
- * @copyright Copyright (C) eZ Systems AS.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- * @version //autogentag//
+ * @copyright Copyright (C) 1998 - 2026 7x and the Exponential Foundation. All rights reserved.
+ * @license GNU General Public License v2.0 (or any later version)
  * @package ezie
  */
 
 // closing must work even when the working copy is already gone
-$prepare_action = new eZIEImagePreAction( false );
 
-// deletes the working folder recursively; its path is built from the current
-// user and the image, never from the request
-eZDir::recursiveDelete( eZSys::rootDir() . '/' . $prepare_action->getWorkingFolder() );
-
-eZIEImagePreAction::sendJSON( new stdClass() );
-?>
+// The code is in extension/ezie/classes/runnable/views/ezie/no_save_and_quit.php (#207); this file is the entry point.
+return \Exponential\View\Extension\Ezie\Ezie\NoSaveAndQuit::main( __FILE__, get_defined_vars() );

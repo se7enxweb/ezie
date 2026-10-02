@@ -2,30 +2,10 @@
 /**
  * File containing the pixelate tool handler
  *
- * @copyright Copyright (C) eZ Systems AS.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- * @version //autogentag//
+ * @copyright Copyright (C) 1998 - 2026 7x and the Exponential Foundation. All rights reserved.
+ * @license GNU General Public License v2.0 (or any later version)
  * @package kernel
  */
-$prepare_action = new eZIEImagePreAction();
 
-// retrieve image dimensions
-$failure = false;
-try
-{
-    $analyzer = new eZIEImageAnalyzer( $prepare_action->getImagePath(), false );
-    $width = (int)$analyzer->data->width;
-    $height = (int)$analyzer->data->height;
-}
-catch ( Exception $e )
-{
-    eZDebug::writeError( get_class( $e ) . ': ' . $e->getMessage(), 'ezie/tool_pixelate' );
-    $failure = true;
-}
-if ( $failure || $width < 1 || $height < 1 )
-{
-    eZIEImagePreAction::sendError( 500, 'The image could not be analyzed' );
-}
-
-$prepare_action->apply( eZIEImageToolPixelate::filter( $width, $height, $prepare_action->getRegion() ) );
-?>
+// The code is in extension/ezie/classes/runnable/views/ezie/tool_pixelate.php (#207); this file is the entry point.
+return \Exponential\View\Extension\Ezie\Ezie\ToolPixelate::main( __FILE__, get_defined_vars() );

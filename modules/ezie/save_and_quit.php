@@ -6,49 +6,10 @@
  * attribute of the draft, removes the working folder and answers with the
  * attribute's edit template, which the editor puts back into the edit form.
  *
- * @copyright Copyright (C) eZ Systems AS.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- * @version //autogentag//
+ * @copyright Copyright (C) 1998 - 2026 7x and the Exponential Foundation. All rights reserved.
+ * @license GNU General Public License v2.0 (or any later version)
  * @package ezie
  */
 
-$prepare_action = new eZIEImagePreAction();
-$imageId = $prepare_action->getImageId();
-$imageVersion = $prepare_action->getImageVersion();
-
-$imageAttribute = eZContentObjectAttribute::fetch( $imageId, $imageVersion );
-
-// the working copy must be local to be read by the image alias handler
-$clusterFile = eZClusterFileHandler::instance( $prepare_action->getImagePath() );
-$clusterFile->fetch();
-
-// Save the class attribute
-$imageHandler = $prepare_action->getImageHandler();
-$stored = $imageHandler->initializeFromFile(
-    $prepare_action->getImagePath(),
-    $imageHandler->attribute( 'alternative_text' ),
-    $imageHandler->attribute( 'original_filename' )
-);
-if ( $stored === false )
-{
-    eZIEImagePreAction::sendError( 500, 'The edited image could not be stored' );
-}
-
-$imageHandler->store( $imageAttribute );
-
-// remove view cache if needed
-eZContentCacheManager::clearObjectViewCacheIfNeeded( $imageAttribute->attribute( 'contentobject_id' ) );
-
-// deletes the working folder recursively
-eZDir::recursiveDelete( eZSys::rootDir() . '/' . $prepare_action->getWorkingFolder() );
-
-// new attribute
-$imageAttribute = eZContentObjectAttribute::fetch( $imageId, $imageVersion );
-
-$tpl = eZTemplate::factory();
-$tpl->setVariable( 'ezie_ajax_response', true );
-$tpl->setVariable( 'attribute', $imageAttribute );
-header( 'Content-Type: text/html; charset=utf-8' );
-echo $tpl->fetch( "design:content/datatype/edit/ezimage.tpl" );
-eZExecution::cleanExit();
-?>
+// The code is in extension/ezie/classes/runnable/views/ezie/save_and_quit.php (#207); this file is the entry point.
+return \Exponential\View\Extension\Ezie\Ezie\SaveAndQuit::main( __FILE__, get_defined_vars() );

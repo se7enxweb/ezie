@@ -2,21 +2,10 @@
 /**
  * File containing the brightness filter handler
  *
- * @copyright Copyright (C) eZ Systems AS.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- * @version //autogentag//
+ * @copyright Copyright (C) 1998 - 2026 7x and the Exponential Foundation. All rights reserved.
+ * @license GNU General Public License v2.0 (or any later version)
  * @package kernel
  */
-$prepare_action = new eZIEImagePreAction();
 
-$http = eZHTTPTool::instance();
-$value = $http->hasPostVariable( 'value' ) ? $http->postVariable( 'value' ) : 0;
-if ( !is_numeric( $value ) )
-{
-    eZIEImagePreAction::sendError( 400, 'The brightness value must be a number' );
-}
-// valid range of the handlers: -255 to 255
-$value = max( -255, min( 255, (int)round( $value ) ) );
-
-$prepare_action->apply( eZIEImageFilterBrightness::filter( $value, $prepare_action->getRegion() ) );
-?>
+// The code is in extension/ezie/classes/runnable/views/ezie/filter_brightness.php (#207); this file is the entry point.
+return \Exponential\View\Extension\Ezie\Ezie\FilterBrightness::main( __FILE__, get_defined_vars() );

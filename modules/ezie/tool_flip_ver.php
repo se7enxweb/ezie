@@ -2,12 +2,10 @@
 /**
  * File containing the ezie vertical flip handler
  *
- * @copyright Copyright (C) eZ Systems AS.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- * @version //autogentag//
+ * @copyright Copyright (C) 1998 - 2026 7x and the Exponential Foundation. All rights reserved.
+ * @license GNU General Public License v2.0 (or any later version)
  * @package ezie
  */
-$prepare_action = new eZIEImagePreAction();
 
-$prepare_action->apply( eZIEImageToolFlipVertically::filter() );
-?>
+// The code is in extension/ezie/classes/runnable/views/ezie/tool_flip_ver.php (#207); this file is the entry point.
+return \Exponential\View\Extension\Ezie\Ezie\ToolFlipVer::main( __FILE__, get_defined_vars() );

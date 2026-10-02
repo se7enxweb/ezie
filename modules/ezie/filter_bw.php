@@ -2,12 +2,10 @@
 /**
  * File containing the black & white filter handler
  *
- * @copyright Copyright (C) eZ Systems AS.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- * @version //autogentag//
+ * @copyright Copyright (C) 1998 - 2026 7x and the Exponential Foundation. All rights reserved.
+ * @license GNU General Public License v2.0 (or any later version)
  * @package kernel
  */
-$prepare_action = new eZIEImagePreAction();
 
-$prepare_action->apply( eZIEImageFilterBW::filter( $prepare_action->getRegion() ) );
-?>
+// The code is in extension/ezie/classes/runnable/views/ezie/filter_bw.php (#207); this file is the entry point.
+return \Exponential\View\Extension\Ezie\Ezie\FilterBw::main( __FILE__, get_defined_vars() );
