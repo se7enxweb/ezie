@@ -2,6 +2,7 @@
 /**
  * File containing the eZIEImageFilterBrightness class.
  *
+ * @copyright Copyright (C) 1998 - 2026 7x & Exponential Foundation. All rights reserved.
  * @copyright Copyright (C) eZ Systems AS.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @version //autogentag//
