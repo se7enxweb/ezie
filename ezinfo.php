@@ -13,7 +13,7 @@ class ezieInfo
     static function info()
     {
         return array( 'Name' => "eZ Image Editor LS",
-                      'Version' => "6.0.8",
+                      'Version' => "6.0.9",
                       'Copyright' => "Copyright (C) 1998 - 2026 7x & Exponential Foundation. Copyright (C) eZ Systems AS. All rights reserved.",
                       'License' => "GNU General Public License v2.0 (or any later version)",
                       'Info_url' => "https://github.com/se7enxweb/ezie",
