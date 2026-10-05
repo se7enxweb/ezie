@@ -126,9 +126,11 @@ class eZIEImagePreAction
      * Fetches an image attribute and checks that the current user may edit it
      *
      * The attribute must be an image of a draft that belongs to the current
-     * user (as content/edit requires), and the user must be allowed to edit
-     * the object in the attribute's language. Answers with a JSON error and
-     * ends the request otherwise.
+     * user (as content/edit requires: draft, internal draft or repeat), and
+     * the user must be allowed to edit the object in the attribute's language.
+     * The anonymous user is refused: all anonymous visitors share one user ID,
+     * so they would share each other's drafts and working folders. Answers
+     * with a JSON error and ends the request otherwise.
      *
      * @param int $attributeId
      * @param int $version
@@ -136,6 +138,11 @@ class eZIEImagePreAction
      */
     public static function fetchEditableAttribute( $attributeId, $version )
     {
+        if ( eZUser::currentUser()->isAnonymous() )
+        {
+            self::sendError( 403, 'Log in to edit images' );
+        }
+
         $attribute = eZContentObjectAttribute::fetch( (int)$attributeId, (int)$version );
         if ( !$attribute instanceof eZContentObjectAttribute || $attribute->attribute( 'data_type_string' ) != 'ezimage' )
         {
@@ -155,7 +162,10 @@ class eZIEImagePreAction
         }
 
         $status = (int)$objectVersion->attribute( 'status' );
-        if ( ( $status !== eZContentObjectVersion::STATUS_DRAFT && $status !== eZContentObjectVersion::STATUS_INTERNAL_DRAFT ) ||
+        $editableStates = array( eZContentObjectVersion::STATUS_DRAFT,
+                                 eZContentObjectVersion::STATUS_INTERNAL_DRAFT,
+                                 eZContentObjectVersion::STATUS_REPEAT );
+        if ( !in_array( $status, $editableStates, true ) ||
              (int)$objectVersion->attribute( 'creator_id' ) !== (int)eZUser::currentUserID() )
         {
             self::sendError( 403, 'Only an image in your own draft can be edited' );
