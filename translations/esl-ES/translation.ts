@@ -48,7 +48,7 @@
     </message>
     <message>
         <source>eZ Image Editor</source>
-        <translation>eZ Image Editor</translation>
+        <translation>Editor de imágenes eZ</translation>
     </message>
     <message>
         <source>Save and Close</source>
@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>Aceptar</translation>
     </message>
     <message>
         <source>Select</source>
