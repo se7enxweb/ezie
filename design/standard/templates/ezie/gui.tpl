@@ -93,10 +93,10 @@
                             <div class="topMenu"><h2>{'Rotation'|i18n('design/standard/ezie')}</h2></div>
                             <div id="selectAngle">
                                 <p class="relative">
-                                    <a class="preset zero" href="javascript:void(0)">0°</a>
-                                    <a class="preset halfpi" href="javascript:void(0)">90°</a>
-                                    <a class="preset pi" href="javascript:void(0)">180°</a>
-                                    <a class="preset threehalfpi" href="javascript:void(0)">270°</a>
+                                    <a class="preset zero" href="#">0°</a>
+                                    <a class="preset halfpi" href="#">90°</a>
+                                    <a class="preset pi" href="#">180°</a>
+                                    <a class="preset threehalfpi" href="#">270°</a>
                                 </p>
                                 <p id="circularSlider">
                                     <input type="text" name="angle" value="0" />
