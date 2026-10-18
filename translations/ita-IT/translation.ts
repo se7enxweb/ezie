@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>MIME type</source>
-        <translation>MIME type</translation>
+        <translation>Tipo MIME</translation>
     </message>
     <message>
         <source>Size</source>
@@ -116,7 +116,7 @@
     </message>
     <message>
         <source>Watermarks</source>
-        <translation>Watermarks</translation>
+        <translation>Filigrane</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -164,7 +164,7 @@
     </message>
     <message>
         <source>Watermark</source>
-        <translation>Watermark</translation>
+        <translation>Filigrana</translation>
     </message>
     <message>
         <source>Effects</source>

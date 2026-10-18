@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="pl_PL">
 <context>
     <name>design/standard/content/datatype</name>
     <message>
         <source>Current image</source>
-        <translation>Obecny plik graficzny</translation>
+        <translation>Bieżący obraz</translation>
     </message>
     <message>
         <source>Preview</source>
@@ -25,54 +25,54 @@
     </message>
     <message>
         <source>There is no image file.</source>
-        <translation>Brak pliku graficznego.</translation>
+        <translation>Brak pliku obrazu.</translation>
     </message>
     <message>
         <source>Remove image</source>
-        <translation>Usuń obraz</translation>
+        <translation>Usunąć obraz</translation>
     </message>
     <message>
         <source>New image file for upload</source>
-        <translation>Nowy plik graficzny do przesłania</translation>
+        <translation>Nowy plik obrazu do przesłania</translation>
     </message>
     <message>
         <source>Alternative image text</source>
-        <translation>Alternatywny tekst obrazka</translation>
+        <translation>Alternatywny tekst obrazu</translation>
     </message>
 </context>
 <context>
     <name>design/standard/ezie</name>
     <message>
         <source>Edit</source>
-        <translation>Edytuj</translation>
+        <translation>Edytować</translation>
     </message>
     <message>
         <source>eZ Image Editor</source>
-        <translation>Edytor eZ Image</translation>
+        <translation>Edytor obrazów eZ</translation>
     </message>
     <message>
         <source>Save and Close</source>
-        <translation>Zapisz i Zamknij</translation>
+        <translation>Zapisać i zamknąć</translation>
     </message>
     <message>
         <source>Save &amp;amp; Close</source>
-        <translation>Zapisz &amp;amp; Zamknij</translation>
+        <translation>Zapisać &amp;amp; zamknąć</translation>
     </message>
     <message>
         <source>Close without saving</source>
-        <translation>Zamknij bez zapisywania</translation>
+        <translation>Zamknąć bez zapisywania</translation>
     </message>
     <message>
         <source>If you leave without saving, all your modifications will be definitely lost</source>
-        <translation>Jeśli wyjdziesz bez zapisywania, wszystkie zmiany zostaną bezpowrotnie utracone</translation>
+        <translation>Wyjście bez zapisywania spowoduje bezpowrotną utratę wszystkich zmian</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation>Zamknij</translation>
+        <translation>Zakończyć</translation>
     </message>
     <message>
         <source>Thumbnail</source>
-        <translation>Miniatura</translation>
+        <translation>Miniatury</translation>
     </message>
     <message>
         <source>Rotation</source>
@@ -80,11 +80,11 @@
     </message>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Zaznacz</translation>
+        <translation>Wybrać</translation>
     </message>
     <message>
         <source>Dimensions</source>
@@ -92,15 +92,15 @@
     </message>
     <message>
         <source>Keep ratio</source>
-        <translation>Zachowaj proporcje</translation>
+        <translation>Zachować proporcje</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>Dowolny</translation>
+        <translation>Wolne</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation>Przytnij</translation>
+        <translation>Przycinanie</translation>
     </message>
     <message>
         <source>Zoom</source>
@@ -112,7 +112,7 @@
     </message>
     <message>
         <source>Fit on screen</source>
-        <translation>Dopasuj do ekranu</translation>
+        <translation>Dopasować do ekranu</translation>
     </message>
     <message>
         <source>Watermarks</source>
@@ -120,7 +120,7 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation>Zatwierdź</translation>
+        <translation>Zastosować</translation>
     </message>
     <message>
         <source>Contrast</source>
@@ -140,11 +140,11 @@
     </message>
     <message>
         <source>Undo</source>
-        <translation>Cofnij</translation>
+        <translation>Cofnąć</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Ponów</translation>
+        <translation>Ponowić</translation>
     </message>
     <message>
         <source>Image</source>
@@ -152,15 +152,15 @@
     </message>
     <message>
         <source>Horizontal Flip</source>
-        <translation>Odbij w poziomie</translation>
+        <translation>Odbicie w poziomie</translation>
     </message>
     <message>
         <source>Vertical Flip</source>
-        <translation>Odbij w pionie</translation>
+        <translation>Odbicie w pionie</translation>
     </message>
     <message>
         <source>Perform Crop</source>
-        <translation>Przytnij</translation>
+        <translation>Przyciąć</translation>
     </message>
     <message>
         <source>Watermark</source>
@@ -188,11 +188,11 @@
     </message>
     <message>
         <source>The image is not loaded because of a server error.</source>
-        <translation>Obraz nie został wczytany, ponieważ wystąpił błąd na serwerze.</translation>
+        <translation>Obraz nie został wczytany z powodu błędu serwera.</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Zamknij</translation>
+        <translation>Zamknąć</translation>
     </message>
 </context>
 </TS>

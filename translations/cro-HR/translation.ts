@@ -5,19 +5,19 @@
     <name>design/standard/content/datatype</name>
     <message>
         <source>Current image</source>
-        <translation>Trenutna slika</translation>
+        <translation>Trenutačna slika</translation>
     </message>
     <message>
         <source>Preview</source>
-        <translation>Pregled</translation>
+        <translation>Pretpregled</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation>Ime datoteke</translation>
+        <translation>Naziv datoteke</translation>
     </message>
     <message>
         <source>MIME type</source>
-        <translation>MIME tip</translation>
+        <translation>MIME vrsta</translation>
     </message>
     <message>
         <source>Size</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>There is no image file.</source>
-        <translation>Nema slike.</translation>
+        <translation>Nema slikovne datoteke.</translation>
     </message>
     <message>
         <source>Remove image</source>
@@ -33,11 +33,11 @@
     </message>
     <message>
         <source>New image file for upload</source>
-        <translation>Nova slika za učitavanje</translation>
+        <translation>Nova slikovna datoteka za prijenos</translation>
     </message>
     <message>
         <source>Alternative image text</source>
-        <translation>Alternativni tekst uz sliku</translation>
+        <translation>Alternativni tekst slike</translation>
     </message>
 </context>
 <context>
@@ -64,23 +64,23 @@
     </message>
     <message>
         <source>If you leave without saving, all your modifications will be definitely lost</source>
-        <translation>Ako izađete bez spremanja, sve vaše izmjene bit će trajno izgubljene</translation>
+        <translation>Ako izađete bez spremanja, sve će vaše izmjene biti trajno izgubljene</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation>Odustani</translation>
+        <translation>Izađi</translation>
     </message>
     <message>
         <source>Thumbnail</source>
-        <translation>Prikaz slike</translation>
+        <translation>Minijatura</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation>Okretanje</translation>
+        <translation>Zakretanje</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>U redu</translation>
     </message>
     <message>
         <source>Select</source>
@@ -92,7 +92,7 @@
     </message>
     <message>
         <source>Keep ratio</source>
-        <translation>Zadrži odnos</translation>
+        <translation>Zadrži omjer</translation>
     </message>
     <message>
         <source>Free</source>
@@ -100,7 +100,7 @@
     </message>
     <message>
         <source>Crop</source>
-        <translation>Rezanje</translation>
+        <translation>Obreži</translation>
     </message>
     <message>
         <source>Zoom</source>
@@ -112,7 +112,7 @@
     </message>
     <message>
         <source>Fit on screen</source>
-        <translation>Smjesti na ekran</translation>
+        <translation>Prilagodi zaslonu</translation>
     </message>
     <message>
         <source>Watermarks</source>
@@ -132,7 +132,7 @@
     </message>
     <message>
         <source>Actions</source>
-        <translation>Akcije</translation>
+        <translation>Radnje</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Undo</source>
-        <translation>Vrati nazad</translation>
+        <translation>Poništi</translation>
     </message>
     <message>
         <source>Redo</source>
@@ -152,15 +152,15 @@
     </message>
     <message>
         <source>Horizontal Flip</source>
-        <translation>Horizontalno okretanje</translation>
+        <translation>Vodoravno zrcaljenje</translation>
     </message>
     <message>
         <source>Vertical Flip</source>
-        <translation>Vertikalno okretanje</translation>
+        <translation>Okomito zrcaljenje</translation>
     </message>
     <message>
         <source>Perform Crop</source>
-        <translation>Izreži</translation>
+        <translation>Obreži</translation>
     </message>
     <message>
         <source>Watermark</source>
@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Black and White</source>
-        <translation>Crno i bijelo</translation>
+        <translation>Crno-bijelo</translation>
     </message>
     <message>
         <source>Sepia</source>
@@ -188,7 +188,7 @@
     </message>
     <message>
         <source>The image is not loaded because of a server error.</source>
-        <translation>Slika nije učitana zbog serverske greške.</translation>
+        <translation>Slika nije učitana zbog pogreške poslužitelja.</translation>
     </message>
     <message>
         <source>Close</source>
