@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>U redu</translation>
     </message>
     <message>
         <source>Select</source>
