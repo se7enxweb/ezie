@@ -48,7 +48,7 @@
     </message>
     <message>
         <source>eZ Image Editor</source>
-        <translation>eZ Image Editor</translation>
+        <translation>Editor de imagens eZ</translation>
     </message>
     <message>
         <source>Save and Close</source>
