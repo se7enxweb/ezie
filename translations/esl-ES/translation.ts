@@ -64,7 +64,7 @@
     </message>
     <message>
         <source>If you leave without saving, all your modifications will be definitely lost</source>
-        <translation>Si sale sin guardar, todas sus modificaciones se perderán definitivamente</translation>
+        <translation>Si sales sin guardar, todas tus modificaciones se perderán definitivamente</translation>
     </message>
     <message>
         <source>Quit</source>
