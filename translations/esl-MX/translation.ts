@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>Filename</source>
-        <translation>Nombre del fichero</translation>
+        <translation>Nombre del archivo</translation>
     </message>
     <message>
         <source>MIME type</source>
@@ -72,7 +72,7 @@
     </message>
     <message>
         <source>Thumbnail</source>
-        <translation>Diapositiva</translation>
+        <translation>Miniatura</translation>
     </message>
     <message>
         <source>Rotation</source>
