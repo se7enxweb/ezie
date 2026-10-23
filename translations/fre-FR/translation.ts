@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>New image file for upload</source>
-        <translation>Nouvelle image à télécharger</translation>
+        <translation>Nouvelle image à charger</translation>
     </message>
     <message>
         <source>Alternative image text</source>
