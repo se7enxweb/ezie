@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_US">
+<TS version="2.0" language="el_GR">
 <context>
     <name>design/standard/content/datatype</name>
     <message>
@@ -52,11 +52,11 @@
     </message>
     <message>
         <source>Save and Close</source>
-        <translation>Αποθήκευση και Κλείσιμο</translation>
+        <translation>Αποθήκευση και κλείσιμο</translation>
     </message>
     <message>
         <source>Save &amp;amp; Close</source>
-        <translation>Αποθήκευση &amp;amp; Κλείσιμο</translation>
+        <translation>Αποθήκευση &amp;amp; κλείσιμο</translation>
     </message>
     <message>
         <source>Close without saving</source>
@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Select</source>
@@ -104,11 +104,11 @@
     </message>
     <message>
         <source>Zoom</source>
-        <translation>Μεγέθυνση</translation>
+        <translation>Ζουμ</translation>
     </message>
     <message>
         <source>Actual pixels</source>
-        <translation>Πραγματικά pixels</translation>
+        <translation>Πραγματικά pixel</translation>
     </message>
     <message>
         <source>Fit on screen</source>
@@ -152,15 +152,15 @@
     </message>
     <message>
         <source>Horizontal Flip</source>
-        <translation>Οριζόντια αντιστροφή</translation>
+        <translation>Οριζόντια αναστροφή</translation>
     </message>
     <message>
         <source>Vertical Flip</source>
-        <translation>Κάθετη αντιστροφή</translation>
+        <translation>Κατακόρυφη αναστροφή</translation>
     </message>
     <message>
         <source>Perform Crop</source>
-        <translation>Εκτέλεση Περικοπής</translation>
+        <translation>Εκτέλεση περικοπής</translation>
     </message>
     <message>
         <source>Watermark</source>
@@ -168,11 +168,11 @@
     </message>
     <message>
         <source>Effects</source>
-        <translation>Εφφέ</translation>
+        <translation>Εφέ</translation>
     </message>
     <message>
         <source>Pixelate</source>
-        <translation>Pixelate</translation>
+        <translation>Εικονοστοιχειοποίηση</translation>
     </message>
     <message>
         <source>Black and White</source>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>Sepia</source>
-        <translation>Sepia</translation>
+        <translation>Σέπια</translation>
     </message>
     <message>
         <source>Options</source>
@@ -188,7 +188,7 @@
     </message>
     <message>
         <source>The image is not loaded because of a server error.</source>
-        <translation>Η εικόνα δε φορτώθηκε λόγω σφάλματος διακομιστή.</translation>
+        <translation>Η εικόνα δεν φορτώθηκε λόγω σφάλματος του διακομιστή.</translation>
     </message>
     <message>
         <source>Close</source>
