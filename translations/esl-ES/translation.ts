@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>Filename</source>
-        <translation>Nombre de fichero</translation>
+        <translation>Nombre de archivo</translation>
     </message>
     <message>
         <source>MIME type</source>
