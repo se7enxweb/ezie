@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="ja_JP">
 <context>
     <name>design/standard/content/datatype</name>
     <message>
         <source>Current image</source>
-        <translation>現在のイメージ</translation>
+        <translation>現在の画像</translation>
     </message>
     <message>
         <source>Preview</source>
@@ -29,15 +29,15 @@
     </message>
     <message>
         <source>Remove image</source>
-        <translation>イメージの削除</translation>
+        <translation>画像の削除</translation>
     </message>
     <message>
         <source>New image file for upload</source>
-        <translation>アップロードする画像ファイル</translation>
+        <translation>アップロードする新しい画像ファイル</translation>
     </message>
     <message>
         <source>Alternative image text</source>
-        <translation>画像代替テキスト</translation>
+        <translation>画像の代替テキスト</translation>
     </message>
 </context>
 <context>
@@ -48,23 +48,23 @@
     </message>
     <message>
         <source>eZ Image Editor</source>
-        <translation>eZイメージエディター</translation>
+        <translation>eZ 画像エディター</translation>
     </message>
     <message>
         <source>Save and Close</source>
-        <translation>保存して終了</translation>
+        <translation>保存して閉じる</translation>
     </message>
     <message>
         <source>Save &amp;amp; Close</source>
-        <translation>保存して終了</translation>
+        <translation>保存 &amp;amp; 閉じる</translation>
     </message>
     <message>
         <source>Close without saving</source>
-        <translation>保存せす終了</translation>
+        <translation>保存せずに閉じる</translation>
     </message>
     <message>
         <source>If you leave without saving, all your modifications will be definitely lost</source>
-        <translation>保存せずに終了すると、すべての変更が失われます</translation>
+        <translation>保存せずに終了すると、すべての変更が完全に失われます</translation>
     </message>
     <message>
         <source>Quit</source>
@@ -92,27 +92,27 @@
     </message>
     <message>
         <source>Keep ratio</source>
-        <translation>比率を維持</translation>
+        <translation>縦横比を維持</translation>
     </message>
     <message>
         <source>Free</source>
-        <translation>自由</translation>
+        <translation>空き</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation>切り取り</translation>
+        <translation>トリミング</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation>拡大</translation>
+        <translation>ズーム</translation>
     </message>
     <message>
         <source>Actual pixels</source>
-        <translation>実際のサイズ</translation>
+        <translation>実際のピクセル</translation>
     </message>
     <message>
         <source>Fit on screen</source>
-        <translation>全体表示</translation>
+        <translation>画面に合わせる</translation>
     </message>
     <message>
         <source>Watermarks</source>
@@ -120,7 +120,7 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation>実行</translation>
+        <translation>適用</translation>
     </message>
     <message>
         <source>Contrast</source>
@@ -128,11 +128,11 @@
     </message>
     <message>
         <source>Brightness</source>
-        <translation>明度</translation>
+        <translation>明るさ</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation>アクション</translation>
+        <translation>操作</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Undo</source>
-        <translation>取り消し</translation>
+        <translation>元に戻す</translation>
     </message>
     <message>
         <source>Redo</source>
@@ -160,7 +160,7 @@
     </message>
     <message>
         <source>Perform Crop</source>
-        <translation>切り抜き実行</translation>
+        <translation>トリミングの実行</translation>
     </message>
     <message>
         <source>Watermark</source>
@@ -168,7 +168,7 @@
     </message>
     <message>
         <source>Effects</source>
-        <translation>エフェクト</translation>
+        <translation>効果</translation>
     </message>
     <message>
         <source>Pixelate</source>
@@ -188,7 +188,7 @@
     </message>
     <message>
         <source>The image is not loaded because of a server error.</source>
-        <translation>サーバエラーのために画像は読み込めませんでした。</translation>
+        <translation>サーバーエラーのため、画像は読み込まれませんでした。</translation>
     </message>
     <message>
         <source>Close</source>
